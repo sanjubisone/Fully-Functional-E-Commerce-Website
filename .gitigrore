@@ -1,0 +1,11 @@
+clien/node_modules
+server/node_modules
+
+# Ignore env files in both
+clien/.env
+server/.env
+
+# Optional: OS or editor-specific ignores
+.DS_Store
+*.log
+*.env
