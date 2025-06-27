@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route ,Navigate  } from 'react-router-dom'
 import AuthLayout from './components/auth/layout'
 import Login from './pages/auth/login'
 import Register from './pages/auth/register'
@@ -21,6 +21,7 @@ import CommonForm from './components/common/form'
 import { useDispatch, useSelector } from 'react-redux'
 import { checkAuth } from './store/auth-slice'
 import { Skeleton } from "@/components/ui/skeleton"
+import { Heading1 } from 'lucide-react'
 
 
 function App() {
@@ -41,6 +42,8 @@ function App() {
       </div>
     </div>
   )}
+ 
+ 
 
   console.log('isAuthenticated : ',isAuthenticated ,'user ',user ,'isLoading :', isLoading )
 
@@ -48,10 +51,11 @@ function App() {
     <>
     
       <div>
-        
+       
         {/* <CommonForm /> */}
         
         <Routes>
+           <Route path="/" element={<Navigate to="/auth/login" replace />} />
           <Route path="/auth" element={<CheckAuth isAuthenticated={isAuthenticated} user={user}>
             <AuthLayout />
             </CheckAuth>} >
@@ -75,6 +79,7 @@ function App() {
 
         </Routes>
       </div>
+     
     </>
   )
 }

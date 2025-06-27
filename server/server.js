@@ -41,6 +41,12 @@ app.use(
         credentials: true,
     })
 );
+
+app.get('/' , (req , res)=>{
+  console.log('get api called ')
+  res.send('hello sanju bhow RE YOU')
+})
+
 app.use(express.json());
 app.use(cookieParser());
 app.use('/api/auth' ,authrouter)
