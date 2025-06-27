@@ -4,7 +4,7 @@ const PayNow = ({ amount, user, onSuccess }) => {
   console.log('pay now function run')
   const handlePayment = async () => {
     try {
-      const { data } = await axios.post('http://localhost:5000/api/payment/create-order', { amount },);
+      const { data } = await axios.post('https://fully-functional-e-commerce-website.onrender.com/api/payment/create-order', { amount },);
       console.log('payment data ',data)
       const options = {
         key: "rzp_test_J5rMjNXVEGBegc", // Only key_id, not secret

@@ -8,10 +8,10 @@ const initialState = {
 
 export const fetchAllFilteredProduct = createAsyncThunk('/products/fetchAllFilteredProduct', async (filters) => {
 console.log('fetchAllFilteredProduct product api called')
-    const result = await axios.get('http://localhost:5000/api/shop/products/get', {
+    const result = await axios.get('https://fully-functional-e-commerce-website.onrender.com/api/shop/products/get', {
         params: filters 
       }
-    )                 //  ('http://localhost:5000/api/admin/products/upload-image', data)
+    )                 //  ('https://fully-functional-e-commerce-website.onrender.com/api/admin/products/upload-image', data)
     console.log('fetchAllFilteredProduct product api called after')
     return result?.data;
 })

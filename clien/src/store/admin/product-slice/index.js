@@ -9,7 +9,7 @@ const initialState = {
 export const addNewProduct = createAsyncThunk('/products/addnewproduct', async (formData) => {
     console.log('addNewProduct product api called')
 
-    const result = await axios.post('http://localhost:5000/api/admin/products/add', formData, {
+    const result = await axios.post('https://fully-functional-e-commerce-website.onrender.com/api/admin/products/add', formData, {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -20,15 +20,15 @@ export const addNewProduct = createAsyncThunk('/products/addnewproduct', async (
 
 export const fetchAllProduct = createAsyncThunk('/products/fetchAllProduct', async () => {
 console.log('fetch all product api called')
-    const result = await axios.get('http://localhost:5000/api/admin/products/get'
-    )                 //  ('http://localhost:5000/api/admin/products/upload-image', data)
+    const result = await axios.get('https://fully-functional-e-commerce-website.onrender.com/api/admin/products/get'
+    )                 //  ('https://fully-functional-e-commerce-website.onrender.com/api/admin/products/upload-image', data)
     console.log('fetch all product api called after')
     return result?.data;
 })
 
 export const editProduct = createAsyncThunk('/products/editProduct', async ({ id, formData }) => {
 
-    const result = await axios.put(`http://localhost:5000/api/admin/products/edit/${id}`, formData, {
+    const result = await axios.put(`https://fully-functional-e-commerce-website.onrender.com/api/admin/products/edit/${id}`, formData, {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -40,7 +40,7 @@ export const editProduct = createAsyncThunk('/products/editProduct', async ({ id
 
 export const deleteProduct = createAsyncThunk('/products/deleteProduct', async (id) => {
 
-    const result = await axios.delete(`http://localhost:5000/api/admin/products/delete/${id}`,
+    const result = await axios.delete(`https://fully-functional-e-commerce-website.onrender.com/api/admin/products/delete/${id}`,
     )
     return result?.data;
 })

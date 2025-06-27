@@ -9,7 +9,7 @@ const initialState = {
 };
 
 // export const registerUser=createAsyncThunk('auth/register',async (FormData)=>{
-//     const response=await axios.post('http://localhost:5000/api/auth/register',FormData,{
+//     const response=await axios.post('https://fully-functional-e-commerce-website.onrender.com/api/auth/register',FormData,{
 //         withCredentials : true
 //     })
 //     return response.data
@@ -20,7 +20,7 @@ export const registerUser = createAsyncThunk(
   'auth/register',
   async (FormData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', FormData, {
+      const response = await axios.post('https://fully-functional-e-commerce-website.onrender.com/api/auth/register', FormData, {
         withCredentials: true
       });
       return response.data;
@@ -40,7 +40,7 @@ export const loginUser = createAsyncThunk(
   'auth/login',
   async (FormData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', FormData, {
+      const response = await axios.post('https://fully-functional-e-commerce-website.onrender.com/api/auth/login', FormData, {
         withCredentials: true
       });
       return response.data;
@@ -61,7 +61,7 @@ export const logoutUser = createAsyncThunk(
   'auth/logout',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/logout',{}, {
+      const response = await axios.post('https://fully-functional-e-commerce-website.onrender.com/api/auth/logout',{}, {
         withCredentials: true
       });
       return response.data;
@@ -83,7 +83,7 @@ export const checkAuth = createAsyncThunk(
   'auth/checkAuth',
   async (_, {rejectWithValue }) => {
     try {
-      const response = await axios.get('http://localhost:5000/api/auth/check-auth', {
+      const response = await axios.get('https://fully-functional-e-commerce-website.onrender.com/api/auth/check-auth', {
         withCredentials: true,
         headers :{
           'Catch-Control' : 'no-store , no-catch, must-revalidate , proxy-revalidate',

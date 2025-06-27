@@ -10,7 +10,7 @@ const initialState = {
 export const addToCart = createAsyncThunk('/products/addToCart', async (formData) => {
     console.log('addToCart product api called')
 
-    const result = await axios.post('http://localhost:5000/api/cart/items/add', formData, {
+    const result = await axios.post('https://fully-functional-e-commerce-website.onrender.com/api/cart/items/add', formData, {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -21,7 +21,7 @@ export const addToCart = createAsyncThunk('/products/addToCart', async (formData
 
 export const fetchAllcartProduct = createAsyncThunk('/products/fetchAllcartProduct', async (userid) => {
 console.log('fetchAllcartProduct product api called')
-    const result = await axios.get(`http://localhost:5000/api/cart/items/get/${userid}`,
+    const result = await axios.get(`https://fully-functional-e-commerce-website.onrender.com/api/cart/items/get/${userid}`,
     )                
     console.log('fetchAllcartProduct product api called after')
     return result?.data;
@@ -30,7 +30,7 @@ console.log('fetchAllcartProduct product api called')
 export const updateCartItemQty = createAsyncThunk('/products/updateCartItemQty', async (formData) => {
     console.log('updateCartItemQty product api called')
 
-    const result = await axios.put('http://localhost:5000/api/cart/items/edit', formData, {
+    const result = await axios.put('https://fully-functional-e-commerce-website.onrender.com/api/cart/items/edit', formData, {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -42,7 +42,7 @@ export const updateCartItemQty = createAsyncThunk('/products/updateCartItemQty',
 export const deleteCartItem = createAsyncThunk('/products/deleteCartItem', async (data) => {
     console.log('delete cart api called',data)
 
-    const result = await axios.delete(`http://localhost:5000/api/cart/items/delete`, {
+    const result = await axios.delete(`https://fully-functional-e-commerce-website.onrender.com/api/cart/items/delete`, {
         params: data 
       }
     )

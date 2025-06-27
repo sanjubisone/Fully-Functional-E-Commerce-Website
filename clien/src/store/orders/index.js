@@ -9,7 +9,7 @@ const initialState = {
 export const addOrder = createAsyncThunk('/products/addOrder', async (formData) => {
     console.log('addOrder product api called')
 
-    const result = await axios.post('http://localhost:5000/api/orders', formData, {
+    const result = await axios.post('https://fully-functional-e-commerce-website.onrender.com/api/orders', formData, {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -20,7 +20,7 @@ export const addOrder = createAsyncThunk('/products/addOrder', async (formData) 
 export const getUserOrdersder = createAsyncThunk('/products/getUserOrders', async (id) => {
     console.log('addOrder product api called')
 
-    const result = await axios.get(`http://localhost:5000/api/orders/my-orders/${id}`,
+    const result = await axios.get(`https://fully-functional-e-commerce-website.onrender.com/api/orders/my-orders/${id}`,
     )
     return result?.data;
 })
