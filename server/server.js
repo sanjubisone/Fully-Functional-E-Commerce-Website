@@ -28,7 +28,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/mydatabas
 
 app.use(
     cors({
-        origin: 'https://fully-functional-e-commerce-website.vercel.app/', // Adjust this to your frontend URL
+        origin: 'https://fully-functional-e-commerce-website.vercel.app', // Adjust this to your frontend URL
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
         allowedHeaders: [
             'Content-Type',
