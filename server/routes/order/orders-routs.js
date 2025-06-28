@@ -26,8 +26,8 @@ router.get('/my-orders/:userId', getUserOrders);
 // router.get('/:id', authMiddleware, getOrderById);
 
 // // Admin routes
-// router.get('/', authMiddleware, isAdmin, getAllOrders);
-// router.put('/:id', authMiddleware, isAdmin, updateOrderStatus);
+router.get('/', getAllOrders);
+router.put('/:id', updateOrderStatus);
 // router.delete('/:id', authMiddleware, isAdmin, deleteOrder);
 
 module.exports = router;

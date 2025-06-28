@@ -52,11 +52,11 @@ const getUserOrders = async (req, res) => {
 const updateOrderStatus = async (req, res) => {
   try {
     const { id } = req.params;
-    const { orderStatus, paymentStatus, isDelivered } = req.body;
+    const { orderStatus ,paymentStatus, isDelivered } = req.body;
 
     const updatedOrder = await Order.findByIdAndUpdate(
       id,
-      { orderStatus, paymentStatus, isDelivered, deliveredAt: isDelivered ? Date.now() : null },
+      { orderStatus,paymentStatus, isDelivered, deliveredAt: isDelivered ? Date.now() : null },
       { new: true }
     );
 

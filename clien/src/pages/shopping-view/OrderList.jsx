@@ -33,7 +33,7 @@ export default function OrderList({ orders }) {
 
                 {selectedOrder && (
                   <div className="space-y-4 max-h-[70vh] overflow-auto">
-                    <p><strong>User ID:</strong> {selectedOrder.user}</p>
+                    <p><strong>User ID:</strong> {selectedOrder?.user?._id}</p>
                     <p><strong>Payment Method:</strong> {selectedOrder.paymentMethod}</p>
                     <p><strong>Payment Status:</strong> {selectedOrder.paymentStatus}</p>
                     <p><strong>Shipping Address:</strong></p>
