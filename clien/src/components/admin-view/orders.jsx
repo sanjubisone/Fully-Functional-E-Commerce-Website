@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import {getAllOrders} from '@/store/orders/index'
 import { useDispatch, useSelector } from 'react-redux'
 import OrderList from './OrderList'
+
+
 function AdminOrders() {
   const dispatch = useDispatch()
   useEffect(()=>{
