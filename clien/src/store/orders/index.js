@@ -39,6 +39,13 @@ export const updateOrderStatus = createAsyncThunk('/products/updateOrderStatus',
     return result?.data;
 })
 
+export const getAllOrders = createAsyncThunk('/products/getAllOrders', async () => {
+    console.log('getAllOrders product api called')
+
+    const result = await axios.get(`https://fully-functional-e-commerce-website.onrender.com/api/orders`,
+    )
+    return result?.data;
+})
 
 
 const orderSlice = createSlice({
@@ -83,6 +90,19 @@ const orderSlice = createSlice({
 
         }).addCase(updateOrderStatus.rejected, (state) => {
             console.log('updateOrderStatus clice rejected')
+            state.isloading = false
+            
+        }).addCase(getAllOrders.pending, (state) => {
+            console.log('getAllOrders clice pending')
+            state.isloading = true
+        }).addCase(getAllOrders.fulfilled, (state, action) => {
+            console.log('getAllOrders clice fulfilled')
+            console.log(action.payload.orders)
+            state.isloading = false
+            state.allorderList = action.payload.orders
+
+        }).addCase(getAllOrders.rejected, (state) => {
+            console.log('getUserOrdersder clice rejected')
             state.isloading = false
             
         })
