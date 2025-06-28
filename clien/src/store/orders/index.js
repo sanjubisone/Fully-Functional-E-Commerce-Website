@@ -4,6 +4,7 @@ import axios from 'axios';
 const initialState = {
     isloading: false,
     orderList: [],
+    allorderList: [],
 }
 
 export const addOrder = createAsyncThunk('/products/addOrder', async (formData) => {
@@ -25,6 +26,18 @@ export const getUserOrdersder = createAsyncThunk('/products/getUserOrders', asyn
     return result?.data;
 })
 
+export const updateOrderStatus = createAsyncThunk('/products/updateOrderStatus', async ({id,formData}) => {
+    console.log('updateOrderStatus product api called')
+
+    const result = await axios.put(`https://fully-functional-e-commerce-website.onrender.com/api/orders/${id}`,formData, {
+        headers: {
+
+            'Content-Type': 'application/json'
+        }
+    }
+    )
+    return result?.data;
+})
 
 
 
@@ -57,6 +70,19 @@ const orderSlice = createSlice({
 
         }).addCase(getUserOrdersder.rejected, (state) => {
             console.log('getUserOrdersder clice rejected')
+            state.isloading = false
+            
+        }).addCase(updateOrderStatus.pending, (state) => {
+            console.log('updateOrderStatus clice pending')
+            state.isloading = true
+        }).addCase(updateOrderStatus.fulfilled, (state, action) => {
+            console.log('updateOrderStatus clice fulfilled')
+            console.log(action.payload.orders)
+            state.isloading = false
+            state.allorderList = action.payload.orders
+
+        }).addCase(updateOrderStatus.rejected, (state) => {
+            console.log('updateOrderStatus clice rejected')
             state.isloading = false
             
         })
