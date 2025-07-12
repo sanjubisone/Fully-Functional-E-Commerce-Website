@@ -5,8 +5,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateCartItemQty ,deleteCartItem ,} from '@/store/cart'
 import { useNavigate } from 'react-router-dom'
 import { toast } from "sonner"
-function UserCartWrapper(cartItems) {
-
+import { set } from 'react-hook-form'
+function UserCartWrapper({ cartItems, onItemClick }) {
+    console.log('cartItems', cartItems)
     const {user}=useSelector(state=>state.auth)
     const dispatch = useDispatch()
     const [hoveredItemKey, setHoveredItemKey] = useState(null)
@@ -43,7 +44,7 @@ function UserCartWrapper(cartItems) {
       const navigate = useNavigate()
       let Totalprice= 0;
 
-     cartItems?.cartItems?.items?.forEach((item) => {
+     cartItems?.items?.forEach((item) => {
       Totalprice+=item.quantity * item.productId.price
       })
 
@@ -60,7 +61,7 @@ function UserCartWrapper(cartItems) {
 
 
        
-         {cartItems?.cartItems?.items?.map((item) => (
+         {cartItems?.items?.map((item) => (
             
           <div 
               key={item.productId._id}
@@ -105,10 +106,12 @@ function UserCartWrapper(cartItems) {
 
             </div>
         </div>
-        <Button onClick = {()=>navigate('./checkout')} className='w-full mt-6'>Checkout</Button>
+        <Button onClick={() => { 
+  navigate('./checkout'); onItemClick && onItemClick();
+  console.log('checkout clicked ', setOpenCartSheet(false))
+}} className='w-full mt-6'>Checkout</Button>
 
-      
-        </SheetContent>
+      </SheetContent>
     )
 }
 
